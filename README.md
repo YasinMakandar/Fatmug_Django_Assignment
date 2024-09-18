@@ -24,7 +24,7 @@ Setup
 1) Clone the repository:
 ```
 git clone https://github.com/YasinMakandar/Fatmug_Django_Assignment.git
-cd video-subtitle-processor
+cd video_project
 
 ```
 2) Build and start the Docker containers:

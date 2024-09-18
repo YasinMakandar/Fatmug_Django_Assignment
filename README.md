@@ -3,7 +3,7 @@
 
  This project is a web application that allows users to upload videos, automatically extract subtitles, and provide a searchable interface for the video content.
 
-##Features
+## Features
 
 Video upload and processing
 Automatic subtitle extraction using ffmpeg
@@ -12,7 +12,7 @@ List view of uploaded videos
 Multi-language subtitle support
 Docker containerization for easy setup and deployment
 
-##Tech Stack
+## Tech Stack
 
 Backend: Django
 Database: PostgreSQL
@@ -47,7 +47,7 @@ docker-compose exec web python manage.py createsuperuser
 5) Access the application at http://localhost:8000
 
 
-##Usage
+## Usage
 
 a)Upload a video file through the web interface.
 b)Wait for the video to be processed and subtitles extracted.
@@ -56,11 +56,11 @@ d)Select a video to view its details and search within its subtitles.
 e)Use the search functionality to find specific phrases within the video.
 f)Click on search results to jump to specific timestamps in the video.
 
-##Screenshots
+## Screenshots
 Screenshots of the application in use can be found in the screenshots folder.
 
-##Contributing
+## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-##License
+## License
 This project is licensed under the MIT License.

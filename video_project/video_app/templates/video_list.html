@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Video List</h1>
+        <ul class="video-list">
+            {% for video in videos %}
+                <li>
+                    <span>{{ video.title }}</span>
+                    <a href="{% url 'search_subtitles' video.id %}" class="search-link">Search Subtitles</a>
+                </li>
+            {% empty %}
+                <li>No videos available.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'video_upload' %}" class="upload-link">Upload New Video</a>
+    </div>
+</body>
+</html>

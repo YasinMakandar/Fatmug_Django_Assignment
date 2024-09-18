@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results for "{{ query }}"</h1>
+
+        <div class="video-container">
+            <video id="videoPlayer" width="640" height="360" controls>
+                <source src="{{ video.video_file.url }}" type="video/mp4">
+                {% if video.subtitle_url %}
+                <track src="{{ video.subtitle_url }}" kind="subtitles" srclang="en" label="English">
+                {% endif %}
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <h2>Search Results in "{{ video.title }}"</h2>
+        <ul class="results-list">
+            {% for result in results %}
+                <li>
+                    <a href="javascript:void(0);" onclick="jumpToTime('{{ result.seconds }}')">
+                        {{ result.start_time }} - {{ result.subtitle_text }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>No results found.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'video_list' %}" class="back-link">Back to videos</a>
+
+        <form action="{% url 'search_subtitles' video.id %}" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search in subtitles..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <script>
+        function jumpToTime(time) {
+            const video = document.getElementById('videoPlayer');
+            video.currentTime = time;
+            video.play();
+        }
+    </script>
+</body>
+</html>

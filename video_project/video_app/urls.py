@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     # your other URL patterns here
+    path("", views.upload, name="empty"),
     path('upload/', views.video_upload, name='video_upload'),
     path('videos/', views.video_list, name='video_list'),
     path('videos/<int:video_id>/', views.video_detail, name='video_detail'),
